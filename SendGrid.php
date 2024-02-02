@@ -1,6 +1,6 @@
 <?php
 
-require('./CrmInterface.php');
+require(__DIR__ . '/CrmInterface.php');
 
 
 /**
@@ -87,7 +87,10 @@ class SendGrid implements CrmInterface {
               'email' => $data['email'],
             )
           ],
-        )
+          "dynamic_template_data" => array(
+            "firstname" => $data['firstname'],
+          )
+        ),
       ],
       'template_id' => $templateId
     );
